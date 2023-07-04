@@ -1,0 +1,109 @@
+*,::before, ::after {
+ margin :0;
+ padding :0;
+ box-sizing :border-box ;
+ font-family: Arial, Helvetica, sans-serif;
+
+}
+
+
+body {
+    font-size: 15pt;
+    height: 100vh;
+    width: min(100%,480px );
+    margin :0 auto 0 ;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.section_1{
+ 
+ width: 100%;
+ margin :5% auto 0 ;
+ display :flex ;
+ justify-content :center ;
+ align-items: center ; 
+ flex-direction :column ;
+
+}
+.words_container{
+ width: 100%;
+ text-align :center ;
+}
+
+.words_container span {
+ display :inline-block ;
+ text-align :center ;
+ margin :0 .1em 0;
+ padding :.5em;
+ text-transform :uppercase ;
+ font-weight :bolder ;
+ padding :.2em ;
+}
+
+.words_container span.active{
+  
+  background-color: #252525;
+  color :#FFFFFF ;
+  box-shadow :0 0 7px rgba(183,185,190,.5);
+  transition :.2s ease-in-out ;
+}
+
+.timer {
+ padding :1em;
+ width: 50%;
+ display :grid;
+ place-items: center ;
+}
+
+
+.feedback{
+ 
+ width: 50%;
+ text-align :center ;
+ padding :1em;
+ 
+}
+
+
+.action_btns {
+ width :80%;
+ display: flex ;
+ justify-content :center ;
+ align-items :center ;
+}
+
+
+.action_btns button{
+ padding :1em 2em;
+ margin :0 .1em ;
+}
+
+.playAgain {
+  display : none ;
+}
+
+.keyboard {
+ 
+ width:100%;
+ position :fixed ;
+ bottom :0 ;
+ z-index :2 ;
+ display: flex;
+ justify-content :center ;
+ align-items :center ;
+ flex-wrap :wrap ;
+ padding-bottom :1em;
+ gap: 5px;
+}
+
+
+.keyboard input {
+ 
+  padding:.2em;
+  margin :.1em;
+  width: 3rem;
+  height: 3rem;
+  font-weight :700 ;
+}
+
