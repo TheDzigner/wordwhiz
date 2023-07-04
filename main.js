@@ -85,18 +85,31 @@ async function displayFetchedWord() {
 }
 
 
-async function displayNextWord() {
-  const nextWord = await fetchWords();
-  displayFetchedWord()
-  return nextWord;
+playAgainBtn.addEventListener('click',loadNextWord);
+
+
+
+async function loadNextWord() {
+ 
+ feedback.textContent = 'Loading next word...';
+feedback.innerHTML = ''
+index = 0;
+playAgainBtn.style.display = 'none';
+
+//   const nextWord = await fetchWords();
+// const nextWord = await fetchWords();
+const nextWord = await displayFetchedWord()
+  
+    
+     keys.forEach((key) => {
+ 
+      key.addEventListener('click',handleClick);
+      
+    });
+
+
 }
 
-
- playAgainBtn.addEventListener('click', ()=>{
-  
-  location.reload(true);
-  
- })
   
 function startTimer() {
  
@@ -106,12 +119,12 @@ function startTimer() {
   
   if (timer <= 0) {
      clearInterval(interval);
-     
+     timer = 0
     feedback.textContent = 'Oops, Time Out :/';
     
     playAgainBtn.style.display = 'inline-block';
     
-    removeKeyClickListeners();
+     removeKeyClickListeners();
     
     
      return; // Add return statement to exit the function after clearing the interval
@@ -135,23 +148,25 @@ removeKeyClickListeners()
 
 
 async function handleClick(e) {
+ console.log('clicked', e.target.value)
   const wordToArr = word.split('');
   const key = e.target.value;
 
   if (key.toLowerCase() === wordToArr[index]) {
     wordsSpan[index].classList.add('active');
     feedback.textContent = 'Woohah :)';
+    
     index++;
 
     if (index === wordLength) {
-      feedback.textContent = 'You Win! Loading next word...';
+      feedback.textContent = 'Loading next word...';
       feedback.innerHTML = ''
        index = 0;
        playAgainBtn.style.display = 'none';
 
    //   const nextWord = await fetchWords();
     // const nextWord = await fetchWords();
-    const nextWord = await displayNextWord()
+    const nextWord = await displayFetchedWord()
     
     }
   } else {
