@@ -111,7 +111,7 @@ function startTimer() {
     
     playAgainBtn.style.display = 'inline-block';
     
-   //  removeKeyClickListeners();
+    removeKeyClickListeners();
     
     
      return; // Add return statement to exit the function after clearing the interval
