@@ -111,7 +111,7 @@ function startTimer() {
     
     playAgainBtn.style.display = 'inline-block';
     
-     removeKeyClickListeners();
+   //  removeKeyClickListeners();
     
     
      return; // Add return statement to exit the function after clearing the interval
@@ -147,8 +147,12 @@ async function handleClick(e) {
       feedback.textContent = 'You Win! Loading next word...';
       feedback.innerHTML = ''
        index = 0;
-      const nextWord = await displayNextWord();
-      displayFetchedWord();
+       playAgainBtn.style.display = 'none';
+
+   //   const nextWord = await fetchWords();
+    // const nextWord = await fetchWords();
+    const nextWord = await displayNextWord()
+    
     }
   } else {
     index = index 
